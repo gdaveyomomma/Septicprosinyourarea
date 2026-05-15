@@ -1,0 +1,1451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SepticProsInYourArea.com — Get 3 Free Local Quotes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --night:   #0E0818;
+      --forest:  #1A1028;
+      --moss:    #3D2268;
+      --fern:    #6B3FA0;
+      --lime:    #A066D3;
+      --cream:   #F5F0FF;
+      --warm:    #EDE8F8;
+      --amber:   #7B2FBE;
+      --gold:    #C4A0E8;
+      --rust:    #4A1A80;
+      --sand:    #C8B8E8;
+      --white:   #FDFBFF;
+      --blue:    #6B3FA0;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Barlow', sans-serif;
+      background: var(--white);
+      color: var(--night);
+      overflow-x: hidden;
+    }
+
+    /* ══════════════════════════════════════
+       NAV
+    ══════════════════════════════════════ */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 5vw;
+      background: rgba(14,8,24,0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(107,63,160,0.3);
+    }
+
+    .nav-logo {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 1.25rem;
+      letter-spacing: 0.04em;
+      color: var(--cream);
+      text-decoration: none;
+      line-height: 1.1;
+    }
+    .nav-logo span { color: var(--gold); }
+    .nav-logo small {
+      display: block;
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      color: rgba(244,239,224,0.45);
+      text-transform: uppercase;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+    }
+
+    .nav-tag {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: 0.06em;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .nav-tag::before {
+      content: '';
+      width: 7px; height: 7px;
+      background: var(--gold);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%,100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.4); }
+    }
+
+    .nav-cta {
+      background: var(--amber);
+      color: #fff;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.55rem 1.3rem;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+      white-space: nowrap;
+    }
+    .nav-cta:hover { background: var(--rust); transform: translateY(-1px); }
+
+    @media (max-width: 600px) {
+      .nav-tag { display: none; }
+    }
+
+    /* ══════════════════════════════════════
+       HERO
+    ══════════════════════════════════════ */
+    .hero {
+      min-height: 100vh;
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      overflow: hidden;
+      padding-top: 68px;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--night) 0%, var(--forest) 55%, #251440 100%);
+    }
+    .hero-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(196,160,232,0.1) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+
+    .hero-slash {
+      position: absolute;
+      top: 0; right: 40%;
+      width: 3px;
+      height: 100%;
+      background: linear-gradient(180deg, transparent, var(--fern) 30%, var(--gold) 60%, transparent);
+      opacity: 0.3;
+      transform: rotate(8deg) translateX(60px);
+    }
+
+    .hero-ground {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 90px;
+      background: linear-gradient(180deg, transparent, rgba(14,8,24,0.8));
+    }
+
+    .hero-left {
+      position: relative;
+      z-index: 2;
+      padding: 5rem 4vw 5rem 6vw;
+    }
+
+    .hero-network-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: rgba(242,181,49,0.12);
+      border: 1px solid rgba(242,181,49,0.35);
+      color: var(--gold);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 0.45rem 1rem;
+      margin-bottom: 1.6rem;
+      animation: fadeUp 0.6s ease both;
+    }
+    .hero-network-badge svg { flex-shrink: 0; }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-weight: 900;
+      font-size: clamp(2.6rem, 4.8vw, 4.6rem);
+      line-height: 1.05;
+      color: var(--cream);
+      margin-bottom: 1.4rem;
+      animation: fadeUp 0.6s 0.1s ease both;
+    }
+    .hero-title .accent { color: var(--gold); font-style: italic; }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      font-weight: 300;
+      line-height: 1.75;
+      color: rgba(244,239,224,0.7);
+      max-width: 430px;
+      margin-bottom: 2rem;
+      animation: fadeUp 0.6s 0.2s ease both;
+    }
+
+    /* How it works mini */
+    .hero-how {
+      display: flex;
+      gap: 0;
+      margin-bottom: 2.2rem;
+      animation: fadeUp 0.6s 0.25s ease both;
+    }
+    .how-step {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .how-step + .how-step::before {
+      content: '→';
+      color: rgba(244,239,224,0.25);
+      font-size: 0.9rem;
+      margin: 0 0.4rem;
+    }
+    .how-num {
+      width: 24px; height: 24px;
+      background: var(--fern);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: #fff;
+      flex-shrink: 0;
+    }
+    .how-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: rgba(244,239,224,0.7);
+      white-space: nowrap;
+    }
+
+    .hero-checks {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+      margin-bottom: 2.2rem;
+      animation: fadeUp 0.6s 0.3s ease both;
+    }
+    .hero-checks li {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: rgba(244,239,224,0.82);
+    }
+    .check-icon {
+      width: 19px; height: 19px;
+      background: var(--fern);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--gold);
+      font-size: 0.65rem;
+    }
+
+    .hero-trust {
+      display: flex;
+      gap: 1.4rem;
+      flex-wrap: wrap;
+      animation: fadeUp 0.6s 0.4s ease both;
+    }
+    .trust-chip {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.76rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--sand);
+    }
+    .trust-chip svg { color: var(--gold); }
+
+    /* ─── FORM ─── */
+    .hero-right {
+      position: relative;
+      z-index: 2;
+      padding: 5rem 6vw 5rem 3vw;
+      display: flex;
+      justify-content: center;
+    }
+
+    .form-card {
+      background: var(--white);
+      width: 100%;
+      max-width: 440px;
+      padding: 2.4rem 2.2rem;
+      position: relative;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.4), 0 0 0 1px rgba(126,198,122,0.15);
+      animation: fadeUp 0.7s 0.2s ease both;
+    }
+    .form-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 60px; height: 4px;
+      background: var(--amber);
+    }
+    .form-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 4px; height: 60px;
+      background: var(--amber);
+    }
+
+    .form-header-badge {
+      background: var(--forest);
+      color: var(--lime);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.8rem;
+      display: inline-block;
+      margin-bottom: 0.9rem;
+    }
+
+    .form-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 1.55rem;
+      letter-spacing: 0.03em;
+      color: var(--night);
+      margin-bottom: 0.35rem;
+      line-height: 1.2;
+    }
+    .form-subtitle {
+      font-size: 0.86rem;
+      color: #6b7a6b;
+      margin-bottom: 1.6rem;
+      line-height: 1.55;
+    }
+    .form-subtitle strong { color: var(--rust); }
+
+    .form-group {
+      margin-bottom: 0.9rem;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #5a6655;
+      margin-bottom: 0.35rem;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.78rem 0.95rem;
+      border: 1.5px solid #d8c8f0;
+      background: #faf8ff;
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.93rem;
+      color: var(--night);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+    .form-group select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%234A8C5C' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      padding-right: 2.5rem;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--fern);
+      box-shadow: 0 0 0 3px rgba(107,63,160,0.15);
+    }
+    .form-group textarea { resize: vertical; min-height: 70px; }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.7rem;
+    }
+
+    .form-submit {
+      width: 100%;
+      padding: 1rem;
+      background: var(--moss);
+      color: #fff;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 1.1rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      margin-top: 0.4rem;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.25s, transform 0.2s;
+    }
+    .form-submit::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+      transform: translateX(-100%);
+      transition: transform 0.5s;
+    }
+    .form-submit:hover { background: var(--night); transform: translateY(-1px); }
+    .form-submit:hover::before { transform: translateX(100%); }
+
+    .form-disclaimer {
+      text-align: center;
+      font-size: 0.68rem;
+      color: #8a9a85;
+      margin-top: 0.8rem;
+      line-height: 1.55;
+    }
+    .form-disclaimer a { color: var(--fern); }
+
+    /* Matching strip under form */
+    .match-strip {
+      background: var(--fern);
+      padding: 0.7rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-top: 0;
+    }
+    .match-dot {
+      width: 8px; height: 8px;
+      background: var(--gold);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    .match-text {
+      font-size: 0.74rem;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: 0.05em;
+    }
+
+    /* Success */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+    .form-success.show { display: block; }
+    .success-icon {
+      width: 64px; height: 64px;
+      background: var(--fern);
+    }
+    @keyframes popIn {
+      from { transform: scale(0); opacity: 0; }
+      to   { transform: scale(1); opacity: 1; }
+    }
+    .success-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 1.6rem;
+      color: var(--night);
+      margin-bottom: 0.6rem;
+    }
+    .success-msg { font-size: 0.93rem; color: #5a6655; line-height: 1.65; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(26px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ══════════════════════════════════════
+       STATS BAND
+    ══════════════════════════════════════ */
+    .stats-band {
+      background: var(--fern);
+      padding: 2.5rem 6vw;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      text-align: center;
+    }
+    @media (max-width: 700px) { .stats-band { grid-template-columns: repeat(2,1fr); } }
+    .stat-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: clamp(2.5rem, 4vw, 3.5rem);
+      color: #fff;
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.76rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+      margin-top: 0.3rem;
+    }
+
+    /* ══════════════════════════════════════
+       HOW WE MATCH YOU
+    ══════════════════════════════════════ */
+    .how-section {
+      padding: 6rem 6vw;
+      background: #f7f4ff;
+    }
+    .section-header { max-width: 600px; margin-bottom: 3.5rem; }
+    .section-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--fern);
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.9rem, 3.5vw, 3rem);
+      font-weight: 700;
+      color: var(--night);
+      line-height: 1.2;
+      margin-bottom: 0.8rem;
+    }
+    .section-title em { color: var(--rust); font-style: italic; }
+    .section-body {
+      font-size: 1rem;
+      font-weight: 300;
+      color: #5a6650;
+      line-height: 1.7;
+    }
+
+    .match-flow {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1px;
+      background: rgba(107,63,160,0.1);
+      margin-top: 1rem;
+    }
+
+    .match-step {
+      background: var(--white);
+      padding: 2rem 1.8rem;
+      position: relative;
+      transition: background 0.3s;
+    }
+    .match-step:hover { background: #f0ebff; }
+
+    .match-step-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 2.8rem;
+      color: rgba(107,63,160,0.07);
+      line-height: 1;
+      position: absolute;
+      top: 1rem; right: 1.5rem;
+    }
+
+    .match-icon {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+    .match-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--night);
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.03em;
+    }
+    .match-desc {
+      font-size: 0.87rem;
+      font-weight: 300;
+      color: #6b7a65;
+      line-height: 1.65;
+    }
+
+    /* ══════════════════════════════════════
+       WHY USE A NETWORK
+    ══════════════════════════════════════ */
+    .network-section {
+      padding: 6rem 6vw;
+      background: var(--warm);
+    }
+
+    .compare-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    @media (max-width: 700px) { .compare-grid { grid-template-columns: 1fr; } }
+
+    .compare-card {
+      padding: 2rem;
+      border: 2px solid transparent;
+      position: relative;
+    }
+    .compare-card.bad {
+      background: #fff5f5;
+      border-color: #f5c0c0;
+    }
+    .compare-card.good {
+      background: #f0ebff;
+      border-color: #b898e0;
+    }
+    .compare-head {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 1.1rem;
+      letter-spacing: 0.05em;
+      margin-bottom: 1.2rem;
+    }
+    .compare-card.bad .compare-head { color: #b03030; }
+    .compare-card.good .compare-head { color: var(--fern); }
+
+    .compare-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .compare-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      font-size: 0.9rem;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    .compare-card.bad .compare-list li { color: #8a4040; }
+    .compare-card.good .compare-list li { color: #2e1050; }
+    .compare-list .ci {
+      flex-shrink: 0;
+      margin-top: 2px;
+      font-size: 0.8rem;
+    }
+
+    /* ══════════════════════════════════════
+       SERVICES COVERED
+    ══════════════════════════════════════ */
+    .services {
+      padding: 6rem 6vw;
+      background: var(--white);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5px;
+      background: rgba(107,63,160,0.08);
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s;
+    }
+    .service-card:hover { background: #f0ebff; }
+    .service-card::after {
+      content: '';
+      position: absolute;
+      left: 0; bottom: 0; top: 0;
+      width: 3px;
+      background: var(--gold);
+      transform: scaleY(0);
+      transform-origin: bottom;
+      transition: transform 0.3s ease;
+    }
+    .service-card:hover::after { transform: scaleY(1); }
+
+    .service-emoji { font-size: 1.9rem; margin-bottom: 1rem; display: block; }
+    .service-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 1.15rem;
+      letter-spacing: 0.05em;
+      color: var(--night);
+      margin-bottom: 0.5rem;
+    }
+    .service-desc {
+      font-size: 0.87rem;
+      font-weight: 300;
+      color: #6b7a65;
+      line-height: 1.65;
+    }
+    .service-n {
+      position: absolute;
+      top: 1rem; right: 1.4rem;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 3rem;
+      color: rgba(107,63,160,0.06);
+      line-height: 1;
+    }
+
+    /* ══════════════════════════════════════
+       AFFILIATES / PARTNER NETWORK
+    ══════════════════════════════════════ */
+    .affiliates {
+      padding: 6rem 6vw;
+      background: var(--night);
+      position: relative;
+      overflow: hidden;
+    }
+    .affiliates::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(196,160,232,0.08) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+    .affiliates .section-title { color: var(--cream); }
+    .affiliates .section-title em { color: var(--gold); }
+    .affiliates .section-body { color: rgba(244,239,224,0.6); }
+
+    .affiliate-criteria {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-top: 3rem;
+    }
+
+    .crit-card {
+      border: 1px solid rgba(196,160,232,0.25);
+      padding: 1.6rem;
+      transition: border-color 0.3s;
+      position: relative;
+    }
+    .crit-card:hover { border-color: rgba(196,160,232,0.6); }
+
+    .crit-icon { font-size: 1.6rem; margin-bottom: 0.8rem; display: block; }
+    .crit-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--cream);
+      margin-bottom: 0.4rem;
+      letter-spacing: 0.04em;
+    }
+    .crit-desc {
+      font-size: 0.83rem;
+      font-weight: 300;
+      color: rgba(244,239,224,0.5);
+      line-height: 1.6;
+    }
+
+    .affiliate-cta-box {
+      margin-top: 3rem;
+      background: rgba(196,160,232,0.08);
+      border: 1px solid rgba(196,160,232,0.25);
+      padding: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+    .affiliate-cta-text {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: var(--cream);
+      letter-spacing: 0.04em;
+    }
+    .affiliate-cta-text small {
+      display: block;
+      font-family: 'Barlow', sans-serif;
+      font-weight: 300;
+      font-size: 0.85rem;
+      color: rgba(244,239,224,0.55);
+      margin-top: 0.2rem;
+      letter-spacing: 0;
+    }
+    .affiliate-btn {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--night);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.8rem 1.8rem;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+      white-space: nowrap;
+    }
+    .affiliate-btn:hover { background: var(--rust); transform: translateY(-1px); }
+
+    /* ══════════════════════════════════════
+       TESTIMONIALS
+    ══════════════════════════════════════ */
+    .testimonials {
+      padding: 6rem 6vw;
+      background: #f4f0ff;
+    }
+
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3.5rem;
+    }
+
+    .testi-card {
+      background: var(--white);
+      padding: 2rem;
+      border-left: 3px solid var(--gold);
+    }
+    .testi-stars { color: var(--gold); font-size: 0.9rem; letter-spacing: 0.1em; margin-bottom: 1rem; }
+    .testi-quote {
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: #1e0e38;
+      line-height: 1.7;
+      margin-bottom: 1.2rem;
+      font-style: italic;
+    }
+    .testi-author {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--fern);
+    }
+    .testi-location { font-size: 0.75rem; color: #8a9a85; margin-top: 0.15rem; }
+    .testi-via {
+      font-size: 0.7rem;
+      color: rgba(160,102,211,0.7);
+      margin-top: 0.5rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+    }
+
+    /* ══════════════════════════════════════
+       BOTTOM CTA
+    ══════════════════════════════════════ */
+    .bottom-cta {
+      background: var(--fern);
+      padding: 5rem 6vw;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .bottom-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: repeating-linear-gradient(
+        -45deg,
+        transparent, transparent 20px,
+        rgba(255,255,255,0.03) 20px, rgba(255,255,255,0.03) 21px
+      );
+    }
+    .cta-title {
+      font-family: 'Playfair Display', serif;
+      font-weight: 900;
+      font-size: clamp(2.2rem, 4vw, 3.5rem);
+      color: var(--cream);
+      margin-bottom: 1rem;
+      position: relative;
+    }
+    .cta-sub {
+      font-size: 1rem;
+      color: rgba(244,239,224,0.7);
+      max-width: 500px;
+      margin: 0 auto 2rem;
+      line-height: 1.65;
+      position: relative;
+    }
+    .cta-btn {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--night);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 1.1rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 1.1rem 2.8rem;
+      text-decoration: none;
+      position: relative;
+      transition: background 0.25s, transform 0.2s, box-shadow 0.2s;
+    }
+    .cta-btn:hover {
+      background: #d8bcf8;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 32px rgba(107,63,160,0.4);
+    }
+
+    /* ══════════════════════════════════════
+       FOOTER
+    ══════════════════════════════════════ */
+    footer {
+      background: var(--night);
+      padding: 2rem 6vw;
+      border-top: 1px solid rgba(107,63,160,0.2);
+    }
+    .footer-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(107,63,160,0.1);
+    }
+    .footer-logo {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 1.3rem;
+      letter-spacing: 0.05em;
+      color: var(--cream);
+    }
+    .footer-logo span { color: var(--gold); }
+    .footer-logo small {
+      display: block;
+      font-size: 0.6rem;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      color: rgba(244,239,224,0.35);
+      text-transform: uppercase;
+      margin-top: 0.1rem;
+    }
+    .footer-disclaimer {
+      font-size: 0.75rem;
+      color: rgba(244,239,224,0.35);
+      max-width: 480px;
+      line-height: 1.6;
+    }
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      font-size: 0.78rem;
+      color: rgba(244,239,224,0.4);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--lime); }
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .footer-copy { font-size: 0.75rem; color: rgba(244,239,224,0.28); }
+
+    /* ══════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════ */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-left { padding: 4rem 6vw 2rem; }
+      .hero-right { padding: 0 6vw 4rem; }
+      .form-card { max-width: 100%; }
+    }
+    @media (max-width: 600px) {
+      .form-row { grid-template-columns: 1fr; }
+      .hero-how { flex-wrap: wrap; gap: 0.5rem; }
+      .hero-how .how-step + .how-step::before { display: none; }
+    }
+
+    @keyframes twinkle {
+      0%,100% { opacity: 0; }
+      50% { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">
+      SepticPros<span>InYourArea</span>.com
+      <small>Verified Local Contractor Network</small>
+    </a>
+    <div class="nav-right">
+      <div class="nav-tag">Matching Homeowners Now</div>
+      <a href="#quote" class="nav-cta">Get 3 Free Quotes</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="hero-bg"></div>
+    <div class="hero-slash"></div>
+    <div class="hero-ground"></div>
+
+    <!-- subtle stars -->
+    <div style="position:absolute;inset:0;overflow:hidden;z-index:1;pointer-events:none">
+      <div style="position:absolute;top:8%;left:12%;width:2px;height:2px;background:#d4b8f0;border-radius:50%;opacity:0.5;animation:twinkle 4s 0.5s infinite"></div>
+      <div style="position:absolute;top:15%;left:28%;width:1.5px;height:1.5px;background:#e8e0ff;border-radius:50%;opacity:0.35;animation:twinkle 3.5s 1s infinite"></div>
+      <div style="position:absolute;top:6%;left:55%;width:2px;height:2px;background:#fff;border-radius:50%;opacity:0.5;animation:twinkle 5s 0.2s infinite"></div>
+      <div style="position:absolute;top:22%;left:74%;width:1.5px;height:1.5px;background:#d4b8f0;border-radius:50%;opacity:0.35;animation:twinkle 4.5s 1.5s infinite"></div>
+      <div style="position:absolute;top:10%;left:88%;width:2px;height:2px;background:#e8e0ff;border-radius:50%;opacity:0.45;animation:twinkle 3.8s 0.8s infinite"></div>
+    </div>
+
+    <div class="hero-left">
+      <div class="hero-network-badge">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>
+        Trusted Contractor Referral Network
+      </div>
+
+      <h1 class="hero-title">
+        Find Trusted<br>
+        Septic <span class="accent">Pros</span><br>
+        In Your Area
+      </h1>
+
+      <p class="hero-sub">
+        We connect homeowners with pre-screened, licensed septic contractors in your local area — so you get multiple competitive quotes fast, with zero stress.
+      </p>
+
+      <!-- Mini flow -->
+      <div class="hero-how">
+        <div class="how-step">
+          <span class="how-num">1</span>
+          <span class="how-label">Tell Us Your Need</span>
+        </div>
+        <div class="how-step">
+          <span class="how-num">2</span>
+          <span class="how-label">We Match You</span>
+        </div>
+        <div class="how-step">
+          <span class="how-num">3</span>
+          <span class="how-label">Get Up to 3 Quotes</span>
+        </div>
+      </div>
+
+      <ul class="hero-checks">
+        <li><span class="check-icon">✓</span> 100% free — no cost to homeowners, ever</li>
+        <li><span class="check-icon">✓</span> Matched with verified, licensed local contractors</li>
+        <li><span class="check-icon">✓</span> Compare multiple quotes before you commit</li>
+        <li><span class="check-icon">✓</span> No obligation — you choose who you hire</li>
+      </ul>
+
+      <div class="hero-trust">
+        <div class="trust-chip">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          4.8 / 5 Avg Rating
+        </div>
+        <div class="trust-chip">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          200+ Partner Contractors
+        </div>
+        <div class="trust-chip">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          All Contractors Vetted
+        </div>
+      </div>
+    </div>
+
+    <!-- FORM -->
+    <div class="hero-right" id="quote">
+      <div>
+        <div class="form-card">
+          <div class="form-header-badge">⚡ Free Matching — No Obligation</div>
+          <h2 class="form-title">Get Up to 3 Free<br>Local Quotes Today</h2>
+          <p class="form-subtitle">Fill out the form and we'll match you with <strong>pre-screened pros near you</strong> within hours.</p>
+
+          <form id="leadForm" action="https://formspree.io/f/meenyank" method="POST">
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" id="firstName" name="firstName" placeholder="John" required/>
+              </div>
+              <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" id="lastName" name="lastName" placeholder="Smith" required/>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000" required/>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="john@email.com" required/>
+            </div>
+
+            <div class="form-group">
+              <label for="zip">ZIP / Postal Code</label>
+              <input type="text" id="zip" name="zip" placeholder="e.g. 97201" required/>
+            </div>
+
+            <div class="form-group">
+              <label for="service">Service Needed</label>
+              <select id="service" name="service" required>
+                <option value="" disabled selected>Select a service…</option>
+                <option>New Septic System Installation</option>
+                <option>Septic System Replacement</option>
+                <option>Drain Field Repair / Replacement</option>
+                <option>Septic Inspection</option>
+                <option>Septic Pumping &amp; Maintenance</option>
+                <option>Emergency Repair</option>
+                <option>Not Sure — Need Assessment</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="timeline">Project Timeline</label>
+              <select id="timeline" name="timeline">
+                <option value="" disabled selected>When do you need this done?</option>
+                <option>As soon as possible / Emergency</option>
+                <option>Within 1–2 weeks</option>
+                <option>Within 1 month</option>
+                <option>1–3 months</option>
+                <option>Just planning / getting quotes</option>
+              </select>
+            </div>
+
+            <button type="submit" class="form-submit">
+              🔍 &nbsp; Match Me With Local Pros
+            </button>
+
+            <p class="form-disclaimer">
+              🔒 Your info is shared only with matched contractors in your area.<br>
+              By submitting you agree to our <a href="#">Terms</a> &amp; <a href="#">Privacy Policy</a>.
+            </p>
+          </form>
+
+          <div class="form-success" id="formSuccess">
+            <div class="success-icon">✓</div>
+            <div class="success-title">You're Matched!</div>
+            <p class="success-msg">
+              Great news — we're connecting your request with licensed septic contractors in your area right now. Expect contact within <strong>a few hours</strong>. Compare quotes and choose the best fit for you.
+            </p>
+          </div>
+        </div>
+
+        <div class="match-strip">
+          <div class="match-dot"></div>
+          <div class="match-text">Contractors in your network are currently available</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats-band">
+    <div>
+      <div class="stat-num">200+</div>
+      <div class="stat-label">Partner Contractors</div>
+    </div>
+    <div>
+      <div class="stat-num">12K+</div>
+      <div class="stat-label">Homeowners Matched</div>
+    </div>
+    <div>
+      <div class="stat-num">4.8★</div>
+      <div class="stat-label">Avg Contractor Rating</div>
+    </div>
+    <div>
+      <div class="stat-num">Free</div>
+      <div class="stat-label">Always Free to Homeowners</div>
+    </div>
+  </div>
+
+  <!-- HOW WE MATCH -->
+  <section class="how-section">
+    <div class="section-header">
+      <div class="section-tag">The Process</div>
+      <h2 class="section-title">How We Connect You<br>to the <em>Right Pro</em></h2>
+      <p class="section-body">SepticProsInYourArea.com is a free referral network — not a contractor. We do the vetting so you don't have to, then match your project to qualified local professionals.</p>
+    </div>
+    <div class="match-flow">
+      <div class="match-step">
+        <div class="match-step-num">01</div>
+        <div class="match-icon">📋</div>
+        <div class="match-title">Tell Us About Your Project</div>
+        <p class="match-desc">Fill out the quick form with your service type, location, and timeline. It takes under 2 minutes.</p>
+      </div>
+      <div class="match-step">
+        <div class="match-step-num">02</div>
+        <div class="match-icon">🔎</div>
+        <div class="match-title">We Find Verified Local Pros</div>
+        <p class="match-desc">Our system searches our network of pre-screened, licensed contractors in your ZIP code area.</p>
+      </div>
+      <div class="match-step">
+        <div class="match-step-num">03</div>
+        <div class="match-icon">📞</div>
+        <div class="match-title">Pros Reach Out to You</div>
+        <p class="match-desc">Up to 3 qualified contractors in your area will contact you directly with quotes and availability.</p>
+      </div>
+      <div class="match-step">
+        <div class="match-step-num">04</div>
+        <div class="match-icon">🤝</div>
+        <div class="match-title">You Choose the Best Fit</div>
+        <p class="match-desc">Compare quotes, check reviews, and hire the contractor that feels right — no pressure, no obligation.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY USE A NETWORK -->
+  <section class="network-section">
+    <div class="section-header">
+      <div class="section-tag">Why It Matters</div>
+      <h2 class="section-title">Don't Hire Blind.<br><em>Compare First.</em></h2>
+      <p class="section-body">Most homeowners call the first number they find and end up overpaying. Our network gives you leverage — multiple quotes, vetted contractors, real competition.</p>
+    </div>
+    <div class="compare-grid">
+      <div class="compare-card bad">
+        <div class="compare-head">
+          <span>❌</span> Going It Alone
+        </div>
+        <ul class="compare-list">
+          <li><span class="ci">✗</span> Searching random Google results with no vetting</li>
+          <li><span class="ci">✗</span> Getting one quote and having no idea if it's fair</li>
+          <li><span class="ci">✗</span> No way to verify licenses or insurance</li>
+          <li><span class="ci">✗</span> Risk of hiring fly-by-night operators</li>
+          <li><span class="ci">✗</span> Wasting days chasing callbacks</li>
+        </ul>
+      </div>
+      <div class="compare-card good">
+        <div class="compare-head">
+          <span>✅</span> Using Our Network
+        </div>
+        <ul class="compare-list">
+          <li><span class="ci">✓</span> All contractors pre-screened for license &amp; insurance</li>
+          <li><span class="ci">✓</span> Up to 3 competitive quotes to compare</li>
+          <li><span class="ci">✓</span> Real reviews from verified past customers</li>
+          <li><span class="ci">✓</span> Pros come to you — no chasing required</li>
+          <li><span class="ci">✓</span> 100% free for homeowners, zero obligation</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES COVERED -->
+  <section class="services">
+    <div class="section-header">
+      <div class="section-tag">Services Covered</div>
+      <h2 class="section-title">Every Septic Job,<br><em>Covered by Our Network</em></h2>
+      <p class="section-body">Our affiliate contractors handle the full range of septic services. Whatever your need, we have a pro in your area for it.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="service-n">01</span>
+        <span class="service-emoji">🏡</span>
+        <div class="service-name">New System Installation</div>
+        <p class="service-desc">Full septic system design and installation for new builds or properties without an existing system. Perc tests and permits included.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-n">02</span>
+        <span class="service-emoji">🔄</span>
+        <div class="service-name">System Replacement</div>
+        <p class="service-desc">Old or failing system? Network pros handle complete removal and replacement with modern, code-compliant solutions.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-n">03</span>
+        <span class="service-emoji">🌿</span>
+        <div class="service-name">Drain Field Repair</div>
+        <p class="service-desc">Drain field rejuvenation, repair, and full replacement. Restore proper drainage and extend your system's life.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-n">04</span>
+        <span class="service-emoji">🔍</span>
+        <div class="service-name">Inspections &amp; Certifications</div>
+        <p class="service-desc">Pre-sale inspections, routine certifications, and full system health assessments — fast-turnaround documentation.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-n">05</span>
+        <span class="service-emoji">🚛</span>
+        <div class="service-name">Pumping &amp; Maintenance</div>
+        <p class="service-desc">Scheduled pumping and preventive maintenance plans from local pros who know your area's soil and conditions.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-n">06</span>
+        <span class="service-emoji">⚡</span>
+        <div class="service-name">Emergency Repairs</div>
+        <p class="service-desc">Septic emergencies can't wait. We connect you with on-call local contractors available for rapid-response repairs.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTRACTOR / AFFILIATE SECTION -->
+  <section class="affiliates">
+    <div class="section-header">
+      <div class="section-tag" style="color:var(--gold)">For Contractors</div>
+      <h2 class="section-title">Are You a Septic Pro?<br><em style="color:var(--gold)">Join Our Affiliate Network</em></h2>
+      <p class="section-body">We send qualified, ready-to-buy homeowner leads directly to septic contractors in our affiliate network. Grow your pipeline without chasing cold calls.</p>
+    </div>
+
+    <div class="affiliate-criteria">
+      <div class="crit-card">
+        <span class="crit-icon">📜</span>
+        <div class="crit-title">Licensed &amp; Insured</div>
+        <p class="crit-desc">All network partners must hold current state licensing and carry full liability and workers' comp insurance.</p>
+      </div>
+      <div class="crit-card">
+        <span class="crit-icon">⭐</span>
+        <div class="crit-title">Strong Reputation</div>
+        <p class="crit-desc">We review ratings and history. Partners must maintain a minimum 4.0 customer rating to stay in the network.</p>
+      </div>
+      <div class="crit-card">
+        <span class="crit-icon">📍</span>
+        <div class="crit-title">Local Coverage</div>
+        <p class="crit-desc">Define your service area by ZIP codes or radius. You only receive leads for jobs you can actually service.</p>
+      </div>
+      <div class="crit-card">
+        <span class="crit-icon">💬</span>
+        <div class="crit-title">Fast Response</div>
+        <p class="crit-desc">Network pros commit to contacting referred homeowners within 4 business hours to protect everyone's time.</p>
+      </div>
+    </div>
+
+    <div class="affiliate-cta-box">
+      <div class="affiliate-cta-text">
+        Ready to grow your business?
+        <small>Pay only for leads that match your area and services. No subscription required.</small>
+      </div>
+      <a href="mailto:partners@septicprosinyourarea.com" class="affiliate-btn">Apply to Join the Network →</a>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials">
+    <div class="section-header">
+      <div class="section-tag">Reviews</div>
+      <h2 class="section-title">Homeowners Love<br><em>Getting Options</em></h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"I had three contractors call me within a day. I saved over $1,400 compared to the first quote I'd already gotten on my own. This service is genuinely worth using."</p>
+        <div class="testi-author">Marcus R.</div>
+        <div class="testi-location">Ridgefield, WA</div>
+        <div class="testi-via">via SepticProsInYourArea.com</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"The contractor they matched us with was fantastic — licensed, on-time, handled every permit. We never would have found them on our own. This made buying our rural property so much easier."</p>
+        <div class="testi-author">Diane &amp; Tom K.</div>
+        <div class="testi-location">Newberg, OR</div>
+        <div class="testi-via">via SepticProsInYourArea.com</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"Septic emergency on a Sunday. Submitted the form, had a local pro calling within 2 hours. I didn't even know where to start — this took all the stress out of a really bad situation."</p>
+        <div class="testi-author">Jennifer L.</div>
+        <div class="testi-location">Kelso, WA</div>
+        <div class="testi-via">via SepticProsInYourArea.com</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOTTOM CTA -->
+  <section class="bottom-cta">
+    <h2 class="cta-title">Ready to Compare Local Quotes?</h2>
+    <p class="cta-sub">It's free, takes 2 minutes, and puts you in control. Get matched with up to 3 licensed septic pros in your area today.</p>
+    <a href="#quote" class="cta-btn">Get My Free Quotes →</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">SepticPros<span>InYourArea</span>.com<small>Verified Local Contractor Referral Network</small></div>
+      </div>
+      <div class="footer-disclaimer">
+        SepticProsInYourArea.com is a free lead referral service connecting homeowners with independent licensed contractors. We are not a contractor and do not perform septic work. All contractors in our network are independent businesses. We are not responsible for the work performed by referred contractors.
+      </div>
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+        <a href="#">For Contractors</a>
+        <a href="mailto:support@septicprosinyourarea.com">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 SepticProsInYourArea.com. All rights reserved.</div>
+      <div class="footer-copy">Free for homeowners. Contractor referral fees may apply.</div>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth scroll to form
+    document.querySelectorAll('a[href="#quote"]').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        document.getElementById('quote').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      });
+    });
+
+    // Formspree AJAX
+    const form = document.getElementById('leadForm');
+    const successMsg = document.getElementById('formSuccess');
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = form.querySelector('.form-submit');
+      btn.textContent = 'Finding Pros Near You…';
+      btn.disabled = true;
+
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          form.style.display = 'none';
+          successMsg.classList.add('show');
+        } else {
+          btn.textContent = '⚠ Something went wrong — try again';
+          btn.disabled = false;
+        }
+      } catch {
+        btn.textContent = '⚠ Network error — please try again';
+        btn.disabled = false;
+      }
+    });
+
+    // Scroll fade-in
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.style.opacity = '1';
+          e.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.service-card, .match-step, .testi-card, .crit-card, .compare-card').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(18px)';
+      el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      io.observe(el);
+    });
+  </script>
+</body>
+</html>
