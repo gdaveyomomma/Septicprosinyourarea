@@ -996,6 +996,192 @@
     </div>
   </nav>
 
+  <!-- AD BANNER STRIP -->
+  <div class="ad-strip" id="adStrip">
+    <div class="ad-strip-inner">
+
+      <!-- Ad Slot 1 -->
+      <div class="ad-slot">
+        <div class="ad-label">Sponsored</div>
+        <div class="ad-slot-inner">
+          <span class="ad-icon">🏠</span>
+          <div class="ad-copy">
+            <div class="ad-title">Home Warranty Plans from $1/day</div>
+            <div class="ad-sub">Covers septic, HVAC, appliances & more</div>
+          </div>
+          <a href="#" class="ad-cta-btn">Get Quote</a>
+        </div>
+      </div>
+
+      <div class="ad-divider"></div>
+
+      <!-- Ad Slot 2 -->
+      <div class="ad-slot">
+        <div class="ad-label">Sponsored</div>
+        <div class="ad-slot-inner">
+          <span class="ad-icon">💳</span>
+          <div class="ad-copy">
+            <div class="ad-title">Finance Your Septic Install</div>
+            <div class="ad-sub">Pre-qualify in 2 min — no credit impact</div>
+          </div>
+          <a href="#" class="ad-cta-btn">Check Rate</a>
+        </div>
+      </div>
+
+      <div class="ad-divider"></div>
+
+      <!-- Ad Slot 3 -->
+      <div class="ad-slot">
+        <div class="ad-label">Sponsored</div>
+        <div class="ad-slot-inner">
+          <span class="ad-icon">🛡️</span>
+          <div class="ad-copy">
+            <div class="ad-title">Compare Homeowners Insurance</div>
+            <div class="ad-sub">Save up to 40% in minutes</div>
+          </div>
+          <a href="#" class="ad-cta-btn">Compare</a>
+        </div>
+      </div>
+
+    </div>
+    <button class="ad-close" onclick="document.getElementById('adStrip').style.display='none'" title="Close">✕</button>
+  </div>
+
+  <style>
+    /* ══════════════════════════════════════
+       AD BANNER STRIP
+    ══════════════════════════════════════ */
+    .ad-strip {
+      position: fixed;
+      top: 68px;
+      left: 0; right: 0;
+      z-index: 90;
+      background: linear-gradient(90deg, #1a1028 0%, #251540 50%, #1a1028 100%);
+      border-bottom: 1px solid rgba(196,160,232,0.2);
+      border-top: 1px solid rgba(196,160,232,0.1);
+      padding: 0 5vw;
+    }
+
+    .ad-strip-inner {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      max-width: 1200px;
+      margin: 0 auto;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .ad-strip-inner::-webkit-scrollbar { display: none; }
+
+    .ad-slot {
+      display: flex;
+      flex-direction: column;
+      padding: 0.55rem 1.5rem 0.55rem 0;
+      min-width: 0;
+      flex: 1;
+      position: relative;
+    }
+
+    .ad-label {
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(196,160,232,0.4);
+      margin-bottom: 0.2rem;
+    }
+
+    .ad-slot-inner {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+
+    .ad-icon {
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .ad-copy { min-width: 0; flex: 1; }
+
+    .ad-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.88rem;
+      letter-spacing: 0.03em;
+      color: var(--cream);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .ad-sub {
+      font-size: 0.72rem;
+      font-weight: 300;
+      color: rgba(196,160,232,0.6);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .ad-cta-btn {
+      display: inline-block;
+      background: var(--fern);
+      color: #fff;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.85rem;
+      text-decoration: none;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: background 0.2s;
+    }
+    .ad-cta-btn:hover { background: var(--amber); }
+
+    .ad-divider {
+      width: 1px;
+      height: 36px;
+      background: rgba(196,160,232,0.15);
+      flex-shrink: 0;
+      margin-right: 1.5rem;
+    }
+
+    .ad-close {
+      position: absolute;
+      right: 0.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: rgba(196,160,232,0.4);
+      font-size: 0.75rem;
+      cursor: pointer;
+      padding: 0.3rem;
+      line-height: 1;
+      transition: color 0.2s;
+    }
+    .ad-close:hover { color: var(--gold); }
+
+    /* Push hero down when ad strip is visible */
+    .hero { padding-top: 118px; }
+
+    @media (max-width: 768px) {
+      .ad-strip-inner { gap: 0; }
+      .ad-slot:nth-child(3),
+      .ad-slot:nth-child(3) ~ .ad-divider { display: none; }
+      .ad-slot { padding: 0.5rem 1rem 0.5rem 0; }
+      .hero { padding-top: 128px; }
+    }
+
+    @media (max-width: 480px) {
+      .ad-slot:nth-child(2),
+      .ad-divider { display: none; }
+    }
+  </style>
+
   <!-- HERO -->
   <section class="hero" id="top">
     <div class="hero-bg"></div>
@@ -1371,6 +1557,223 @@
   </section>
 
   <!-- FOOTER -->
+  <!-- REFERRAL REVENUE SECTION -->
+  <section class="referrals">
+    <div class="section-header">
+      <div class="section-tag">💰 More Ways to Earn</div>
+      <h2 class="section-title">Homeowner Resources &<br><em>Our Recommended Partners</em></h2>
+      <p class="section-body">We've partnered with trusted home services brands to bring you exclusive deals — and earn a small referral commission at no extra cost to you.</p>
+    </div>
+
+    <div class="referral-grid">
+
+      <!-- Home Warranty -->
+      <div class="referral-card">
+        <div class="referral-badge">Home Warranty</div>
+        <div class="referral-icon">🏠</div>
+        <div class="referral-name">Home Warranty Coverage</div>
+        <p class="referral-desc">Protect your septic system and major home appliances. Plans start at $1/day. Get a free quote from our top-rated warranty partner.</p>
+        <div class="referral-earn">We earn a referral fee — free for you</div>
+        <a href="#" class="referral-btn">Get a Free Quote →</a>
+      </div>
+
+      <!-- Homeowners Insurance -->
+      <div class="referral-card">
+        <div class="referral-badge">Insurance</div>
+        <div class="referral-icon">🛡️</div>
+        <div class="referral-name">Homeowners Insurance</div>
+        <p class="referral-desc">Compare homeowners insurance rates in minutes. Make sure your property — and your septic investment — is fully covered.</p>
+        <div class="referral-earn">We earn a referral fee — free for you</div>
+        <a href="#" class="referral-btn">Compare Rates →</a>
+      </div>
+
+      <!-- Financing -->
+      <div class="referral-card">
+        <div class="referral-badge">Financing</div>
+        <div class="referral-icon">💳</div>
+        <div class="referral-name">Home Improvement Loans</div>
+        <p class="referral-desc">Need to finance your septic installation? Get pre-qualified in minutes with no impact to your credit score. Rates from 6.99% APR.</p>
+        <div class="referral-earn">We earn a referral fee — free for you</div>
+        <a href="#" class="referral-btn">Check Your Rate →</a>
+      </div>
+
+      <!-- Real Estate -->
+      <div class="referral-card">
+        <div class="referral-badge">Real Estate</div>
+        <div class="referral-icon">🏡</div>
+        <div class="referral-name">Find a Local Real Estate Agent</div>
+        <p class="referral-desc">Buying or selling a rural property? Get matched with a local agent who specializes in homes with septic systems and acreage.</p>
+        <div class="referral-earn">We earn a referral fee — free for you</div>
+        <a href="#" class="referral-btn">Find an Agent →</a>
+      </div>
+
+      <!-- Well Water -->
+      <div class="referral-card">
+        <div class="referral-badge">Well Services</div>
+        <div class="referral-icon">💧</div>
+        <div class="referral-name">Well Water Testing & Service</div>
+        <p class="referral-desc">Most homes with septic systems also have well water. Get your water tested and connect with certified well service pros in your area.</p>
+        <div class="referral-earn">We earn a referral fee — free for you</div>
+        <a href="#" class="referral-btn">Get Water Tested →</a>
+      </div>
+
+      <!-- Smart Home -->
+      <div class="referral-card">
+        <div class="referral-badge">Smart Home</div>
+        <div class="referral-icon">📡</div>
+        <div class="referral-name">Septic Monitoring Systems</div>
+        <p class="referral-desc">Get alerts before problems happen. Smart septic monitors track tank levels and system health 24/7 from your phone.</p>
+        <div class="referral-earn">We earn a referral fee — free for you</div>
+        <a href="#" class="referral-btn">Shop Monitors →</a>
+      </div>
+
+    </div>
+
+    <div class="referral-disclosure">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      <strong>Disclosure:</strong> Some links on this page are affiliate or referral links. We may earn a commission if you make a purchase or sign up through these links, at no additional cost to you. We only recommend services we believe provide genuine value to homeowners.
+    </div>
+  </section>
+
+  <style>
+    /* ══════════════════════════════════════
+       REFERRAL SECTION
+    ══════════════════════════════════════ */
+    .referrals {
+      padding: 6rem 6vw;
+      background: var(--night);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .referrals::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(196,160,232,0.06) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+
+    .referrals .section-tag { color: var(--gold); }
+    .referrals .section-title { color: var(--cream); }
+    .referrals .section-title em { color: var(--gold); }
+    .referrals .section-body { color: rgba(245,240,255,0.6); max-width: 560px; }
+
+    .referral-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5px;
+      background: rgba(196,160,232,0.1);
+      margin-top: 3rem;
+    }
+
+    .referral-card {
+      background: var(--forest);
+      padding: 2rem 1.8rem;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      transition: background 0.3s;
+      border-top: 3px solid transparent;
+    }
+    .referral-card:hover {
+      background: #221436;
+      border-top-color: var(--gold);
+    }
+
+    .referral-badge {
+      display: inline-block;
+      background: rgba(196,160,232,0.12);
+      border: 1px solid rgba(196,160,232,0.25);
+      color: var(--gold);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.6rem;
+      margin-bottom: 1rem;
+      width: fit-content;
+    }
+
+    .referral-icon {
+      font-size: 2rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .referral-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 1.15rem;
+      letter-spacing: 0.04em;
+      color: var(--cream);
+      margin-bottom: 0.6rem;
+    }
+
+    .referral-desc {
+      font-size: 0.87rem;
+      font-weight: 300;
+      color: rgba(245,240,255,0.55);
+      line-height: 1.65;
+      margin-bottom: 1rem;
+      flex: 1;
+    }
+
+    .referral-earn {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: rgba(196,160,232,0.5);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .referral-earn::before {
+      content: '★';
+      color: var(--gold);
+      font-size: 0.65rem;
+    }
+
+    .referral-btn {
+      display: inline-block;
+      background: transparent;
+      border: 1.5px solid rgba(196,160,232,0.35);
+      color: var(--gold);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.65rem 1.2rem;
+      text-decoration: none;
+      transition: all 0.25s;
+      width: fit-content;
+    }
+    .referral-btn:hover {
+      background: var(--fern);
+      border-color: var(--fern);
+      color: #fff;
+      transform: translateY(-1px);
+    }
+
+    .referral-disclosure {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      margin-top: 2.5rem;
+      padding: 1.2rem 1.5rem;
+      background: rgba(196,160,232,0.06);
+      border: 1px solid rgba(196,160,232,0.15);
+      font-size: 0.78rem;
+      color: rgba(245,240,255,0.4);
+      line-height: 1.6;
+    }
+    .referral-disclosure svg { flex-shrink: 0; margin-top: 2px; color: var(--gold); opacity: 0.6; }
+    .referral-disclosure strong { color: rgba(245,240,255,0.6); }
+  </style>
+
   <footer>
     <div class="footer-top">
       <div>
@@ -1440,7 +1843,7 @@
       });
     }, { threshold: 0.1 });
 
-    document.querySelectorAll('.service-card, .match-step, .testi-card, .crit-card, .compare-card').forEach(el => {
+    document.querySelectorAll('.service-card, .match-step, .testi-card, .crit-card, .compare-card, .referral-card').forEach(el => {
       el.style.opacity = '0';
       el.style.transform = 'translateY(18px)';
       el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
