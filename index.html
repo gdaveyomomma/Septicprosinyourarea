@@ -796,7 +796,31 @@
       transition: background 0.2s, transform 0.2s;
       white-space: nowrap;
     }
-    .affiliate-btn:hover { background: var(--rust); transform: translateY(-1px); }
+    .affiliate-form { width: 100%; }
+    .aff-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.6rem;
+      margin-bottom: 0.6rem;
+    }
+    .affiliate-form input {
+      width: 100%;
+      padding: 0.7rem 0.9rem;
+      background: rgba(255,255,255,0.06);
+      border: 1.5px solid rgba(196,160,232,0.25);
+      color: var(--cream);
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.88rem;
+      outline: none;
+      transition: border-color 0.2s;
+      margin-bottom: 0.6rem;
+    }
+    .affiliate-form input::placeholder { color: rgba(196,160,232,0.45); }
+    .affiliate-form input:focus { border-color: var(--gold); }
+    @media (max-width: 600px) {
+      .aff-row { grid-template-columns: 1fr; }
+      .affiliate-cta-box { flex-direction: column; }
+    }
 
     /* ══════════════════════════════════════
        TESTIMONIALS
@@ -1514,7 +1538,7 @@
         Ready to grow your business?
         <small>Pay only for leads that match your area and services. No subscription required.</small>
       </div>
-      <a href="tel:+14802017275" class="affiliate-btn">Apply to Join the Network →</a>
+      <a href="mailto:cgoodingallday@gmail.com?subject=Contractor%20Network%20Application&body=Hi!%20I'd%20like%20to%20apply%20to%20join%20your%20contractor%20network." class="affiliate-btn">Apply to Join the Network →</a>
     </div>
   </section>
 
@@ -1853,7 +1877,35 @@
       }
     });
 
-    // Scroll fade-in
+    // Affiliate form submission
+    const affForm = document.getElementById('affiliateForm');
+    const affSuccess = document.getElementById('affiliateSuccess');
+    if (affForm) {
+      affForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const btn = affForm.querySelector('button');
+        btn.textContent = 'Sending…';
+        btn.disabled = true;
+        try {
+          const res = await fetch('https://formspree.io/f/cgoodingallday@gmail.com', {
+            method: 'POST',
+            body: new FormData(affForm),
+            headers: { 'Accept': 'application/json' }
+          });
+          if (res.ok) {
+            affForm.querySelectorAll('input').forEach(i => i.style.display = 'none');
+            btn.style.display = 'none';
+            affSuccess.style.display = 'block';
+          } else {
+            btn.textContent = '⚠ Try again';
+            btn.disabled = false;
+          }
+        } catch {
+          btn.textContent = '⚠ Network error — try again';
+          btn.disabled = false;
+        }
+      });
+    }
     const io = new IntersectionObserver(entries => {
       entries.forEach(e => {
         if (e.isIntersecting) {
